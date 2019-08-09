@@ -2,6 +2,8 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.11
 import QtQuick.Window 2.12
 
+import './Components/Generic/' as CG
+
 Window {
     id: root
     visible: true
@@ -21,14 +23,8 @@ Window {
             width: parent.width
             height: parent.height
 
-            Text {
+            CG.Title {
                 text: qsTr("Smart Dashboard")
-                font {
-                    bold: true
-                    family: "Verdana"
-                    pointSize: 14
-                }
-                Layout.alignment: Qt.AlignHCenter
             }
 
             Item {
