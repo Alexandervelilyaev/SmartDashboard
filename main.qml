@@ -1,7 +1,9 @@
 import QtQuick 2.12
+import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.11
 import QtQuick.Window 2.12
 
+import './Components/' as C
 import './Components/Generic/' as CG
 
 Window {
@@ -25,6 +27,12 @@ Window {
 
             CG.Title {
                 text: qsTr("Smart Dashboard")
+            }
+
+            C.PowerButton {
+                onClicked: {
+                    setState(1);
+                }
             }
 
             Item {

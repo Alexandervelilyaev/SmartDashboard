@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Components/Generic/Title.qml</file>
+        <file>Images/power-button-green.svg</file>
+        <file>Images/power-button-orange.svg</file>
+        <file>Images/power-button-red.svg</file>
+        <file>Components/PowerButton.qml</file>
     </qresource>
 </RCC>
