@@ -35,6 +35,10 @@ Window {
                 }
             }
 
+            CG.Switch {
+                Layout.alignment: Qt.AlignHCenter
+            }
+
             Item {
                 Layout.fillHeight: true
             }
