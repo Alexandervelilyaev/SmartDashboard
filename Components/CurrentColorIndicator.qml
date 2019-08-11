@@ -18,12 +18,13 @@ RowLayout {
         }
 
         TextField {
+            id: hexColor
             Layout.preferredWidth: 100
             Layout.preferredHeight: 35
             Layout.alignment: Qt.AlignHCenter
             font.pointSize: 16
-
-            text: qsTr("#FFFFFF")
+            text: "#000000"
+            font.capitalization: Font.AllUppercase
         }
     }
 
@@ -32,6 +33,10 @@ RowLayout {
         height: 60
         border.width: 1
         border.color: "black"
-        color: "brown"
+        color: hexColor.text
+    }
+
+    function selectColor(color) {
+        hexColor.text = color;
     }
 }

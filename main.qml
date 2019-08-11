@@ -48,6 +48,9 @@ Window {
             C.CurrentColorIndicator {
                 Layout.alignment: Qt.AlignHCenter
                 Layout.margins: margins * 2
+                Component.onCompleted: {
+                    selectColor("#A52A2A");
+                }
             }
 
             Item {
