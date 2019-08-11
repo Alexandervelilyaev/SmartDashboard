@@ -72,12 +72,12 @@ Rectangle {
             Transition {
                 from: "checked"
                 to: "unchecked"
-                PropertyAnimation { target: handle; duration: control.duration }
+                PropertyAnimation { target: handle; property: "x"; duration: control.duration }
             },
             Transition {
                 from: "unchecked"
                 to: "checked"
-                PropertyAnimation { target: handle; duration: control.duration }
+                PropertyAnimation { target: handle; property: "x"; duration: control.duration }
             }
         ]
 
