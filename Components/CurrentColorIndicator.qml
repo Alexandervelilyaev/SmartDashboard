@@ -10,6 +10,8 @@ import QtQuick.Layouts 1.11
 RowLayout {
     id: control
 
+    signal colorChanged(string color)
+
     ColumnLayout {
         Text {
             text: qsTr("current color")
@@ -25,6 +27,8 @@ RowLayout {
             font.pointSize: 16
             text: "#000000"
             font.capitalization: Font.AllUppercase
+
+            onTextChanged: control.colorChanged(text)
         }
     }
 
@@ -36,7 +40,11 @@ RowLayout {
         color: hexColor.text
     }
 
-    function selectColor(color) {
-        hexColor.text = color;
+    function setColor(color) {
+        hexColor.text = color
+    }
+
+    function getColor() {
+        return hexColor.text
     }
 }
