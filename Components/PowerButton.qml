@@ -53,8 +53,6 @@ MouseArea {
         source: rect
     }
 
-    Layout.alignment: Qt.AlignHCenter
-
     function setState(newState) {
         state = newState
 

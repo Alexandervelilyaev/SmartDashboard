@@ -30,6 +30,8 @@ Window {
             }
 
             C.PowerButton {
+                Layout.margins: margins * 2
+                Layout.alignment: Qt.AlignHCenter
                 onClicked: {
                     setState(1);
                 }
