@@ -15,7 +15,7 @@ Rectangle {
     state: checked ? "checked" : "unchecked"
 
     property bool checked: false
-    property int duration: 300
+    property int duration: 200
     property color checkedColor: "green"
     property color unCheckedColor: "gray"
     property bool isRound: true
@@ -38,14 +38,14 @@ Rectangle {
         Transition {
             from: "checked"
             to: "unchecked"
-            ColorAnimation { target: control; duration: duration }
-            PropertyAnimation { target: handle; property: "x"; duration: duration }
+            ColorAnimation { target: control; duration: control.duration }
+            PropertyAnimation { target: handle; property: "x"; duration: control.duration }
         },
         Transition {
             from: "unchecked"
             to: "checked"
-            ColorAnimation { target: control; duration: duration }
-            PropertyAnimation { target: handle; property: "x"; duration: duration }
+            ColorAnimation { target: control; duration: control.duration }
+            PropertyAnimation { target: handle; property: "x"; duration: control.duration }
         }
     ]
 
