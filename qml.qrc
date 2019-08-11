@@ -8,5 +8,6 @@
         <file>Components/PowerButton.qml</file>
         <file>Components/Generic/Switch.qml</file>
         <file>Components/OnOffSwitch.qml</file>
+        <file>Components/CurrentColorIndicator.qml</file>
     </qresource>
 </RCC>

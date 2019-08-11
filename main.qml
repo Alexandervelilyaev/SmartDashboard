@@ -45,6 +45,11 @@ Window {
                 }
             }
 
+            C.CurrentColorIndicator {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.margins: margins * 2
+            }
+
             Item {
                 Layout.fillHeight: true
             }
