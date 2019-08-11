@@ -7,5 +7,6 @@
         <file>Images/power-button-red.svg</file>
         <file>Components/PowerButton.qml</file>
         <file>Components/Generic/Switch.qml</file>
+        <file>Components/OnOffSwitch.qml</file>
     </qresource>
 </RCC>

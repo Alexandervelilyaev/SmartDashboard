@@ -35,8 +35,12 @@ Window {
                 }
             }
 
-            CG.Switch {
+            C.OnOffSwitch {
                 Layout.alignment: Qt.AlignHCenter
+
+                onCheckedChanged: {
+                    console.log(checked ? "ON" : "OFF");
+                }
             }
 
             Item {
