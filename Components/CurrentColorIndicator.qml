@@ -11,6 +11,7 @@ RowLayout {
     id: control
 
     signal colorChanged(string color)
+    signal clicked()
 
     ColumnLayout {
         Text {
@@ -38,6 +39,11 @@ RowLayout {
         border.width: 1
         border.color: "black"
         color: hexColor.text
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: control.clicked()
+        }
     }
 
     function setColor(color) {

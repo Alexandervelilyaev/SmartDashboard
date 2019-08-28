@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.11
 import QtQuick.Window 2.12
+import QtQuick.Dialogs 1.0
 
 import './Components/' as C
 import './Components/Generic/' as CG
@@ -56,101 +57,104 @@ Window {
                 onColorChanged: {
                     console.log("color changed: ", color)
                 }
+
+                onClicked: colorDialog.visible = true
             }
 
-            TabView {
-                Layout.fillWidth: true
-                Tab {
-                    title: "RGB"
-                    Rectangle {
-                        color: "gray"
+            ColumnLayout {
+                //anchors.fill: parent
+                anchors.margins: 10
 
-                        ColumnLayout {
-                            anchors.fill: parent
-                            anchors.margins: 10
+                RowLayout {
+                    Text {
+                        text: qsTr("Red:")
+                        Layout.preferredWidth: 50
+                        //color: "red"
+                        font.bold: true
+                    }
 
-                            RowLayout {
-                                Text {
-                                    text: qsTr("Red:")
-                                    Layout.preferredWidth: 50
-                                    //color: "red"
-                                    font.bold: true
-                                }
+                    Slider {
+                        id: redSlider
+                        Layout.fillWidth: true
+                        minimumValue: 1
+                        value: 25
+                        maximumValue: 255
+                        stepSize: 1
+                    }
 
-                                Slider {
-                                    id: redSlider
-                                    Layout.fillWidth: true
-                                    minimumValue: 1
-                                    value: 25
-                                    maximumValue: 255
-                                    stepSize: 1
-                                }
-
-                                Text {
-                                    text: redSlider.value
-                                    Layout.preferredWidth: 25
-                                    //color: "red"
-                                    font.bold: true
-                                }
-                            }
-
-                            RowLayout {
-                                Text {
-                                    text: qsTr("Green:")
-                                    Layout.preferredWidth: 50
-                                    //color: "green"
-                                    font.bold: true
-                                }
-
-                                Slider {
-                                    id: greenSlider
-                                    Layout.fillWidth: true
-                                    minimumValue: 1
-                                    value: 25
-                                    maximumValue: 255
-                                    stepSize: 1
-                                }
-
-                                Text {
-                                    text: greenSlider.value
-                                    Layout.preferredWidth: 25
-                                    //color: "green"
-                                    font.bold: true
-                                }
-                            }
-
-                            RowLayout {
-                                Text {
-                                    text: qsTr("Blue:")
-                                    Layout.preferredWidth: 50
-                                    //color: "blue"
-                                    font.bold: true
-                                }
-
-                                Slider {
-                                    id: blueSlider
-                                    Layout.fillWidth: true
-                                    minimumValue: 1
-                                    value: 25
-                                    maximumValue: 255
-                                    stepSize: 1
-                                }
-
-                                Text {
-                                    text: blueSlider.value
-                                    Layout.preferredWidth: 25
-                                    //color: "blue"
-                                    font.bold: true
-                                }
-                            }
-                        }
+                    Text {
+                        text: redSlider.value
+                        Layout.preferredWidth: 25
+                        //color: "red"
+                        font.bold: true
                     }
                 }
-                Tab {
-                    title: "Picker"
-                    Rectangle { color: "white" }
+
+                RowLayout {
+                    Text {
+                        text: qsTr("Green:")
+                        Layout.preferredWidth: 50
+                        //color: "green"
+                        font.bold: true
+                    }
+
+                    Slider {
+                        id: greenSlider
+                        Layout.fillWidth: true
+                        minimumValue: 1
+                        value: 25
+                        maximumValue: 255
+                        stepSize: 1
+                    }
+
+                    Text {
+                        text: greenSlider.value
+                        Layout.preferredWidth: 25
+                        //color: "green"
+                        font.bold: true
+                    }
+                }
+
+                RowLayout {
+                    Text {
+                        text: qsTr("Blue:")
+                        Layout.preferredWidth: 50
+                        //color: "blue"
+                        font.bold: true
+                    }
+
+                    Slider {
+                        id: blueSlider
+                        Layout.fillWidth: true
+                        minimumValue: 1
+                        value: 25
+                        maximumValue: 255
+                        stepSize: 1
+                    }
+
+                    Text {
+                        text: blueSlider.value
+                        Layout.preferredWidth: 25
+                        //color: "blue"
+                        font.bold: true
+                    }
                 }
             }
+
         } // ColumnLayout
+
+        ColorDialog {
+            id: colorDialog
+            title: "Please choose a color"
+            onAccepted: {
+                console.log("You chose: " + colorDialog.color)
+                Qt.quit()
+            }
+            onRejected: {
+                console.log("Canceled")
+                Qt.quit()
+            }
+            //Component.onCompleted: visible = true
+        }
     } // Item
 } // Window
